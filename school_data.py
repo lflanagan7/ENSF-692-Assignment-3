@@ -157,10 +157,9 @@ def main():
     while True:
         try: 
             # Print Stage 1 requirements here
-            print("ENSF 692 School Enrollment Statistics")
+            print("\nENSF 692 School Enrollment Statistics\n")
             print("Shape of full data array: ", full_data.shape)
             print("Dimensions of full data array: ", full_data.ndim)
-            
 
             # Prompt for user input
             user_input = input("Please enter high school name or school code or press 'q' to end the program: ")
