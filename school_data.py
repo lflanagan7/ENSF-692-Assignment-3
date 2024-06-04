@@ -34,7 +34,7 @@ class School:
     """A class used to create a School object. 
         Attributes:
         school_name (str): String that represents the school's name. Default String is updated based on user input. 
-        school_index (int): Integer that represents the school's index within the full_data array. Default Integer 0 is updated based on user input. 
+        school_index (int): Integer that represents the school's index within the full_data array. Default Integer is updated based on user input. 
         school_code (str): String that represents the school's code. Default String is updated based on user input. 
 
     """
@@ -99,9 +99,9 @@ def mean_enrollment(year_index, school_index, grade_index):
     full_data array based on the specified indices for subarray views. 
 
     Args:
-        year_index (Any): Can be either an integer that represents the specified year index or a slice object.
-        school_index (Any): Can be either an integer that represents the specified school index or a slice object. 
-        grade_index (Any): Can be either an integer that represents the specified grade index or a slice object. 
+        year_index (int or slice()): Can be either an integer that represents the specified year index or a slice object.
+        school_index (int or slice()): Can be either an integer that represents the specified school index or a slice object. 
+        grade_index (int or slice()): Can be either an integer that represents the specified grade index or a slice object. 
 
     Returns:
         mean_enrollment_int (int): An integer that represents the mean enrollment value. 
@@ -117,9 +117,9 @@ def total_enrollment(year_index, school_index, grade_index):
     full_data array based on the specified indices for subarray views. 
 
     Args:
-        year_index (Any): Can be either an integer that represents the specified year index or a slice object.
-        school_index (Any): Can be either an integer that represents the specified school index or a slice object. 
-        grade_index (Any): Can be either an integer that represents the specified grade index or a slice object. 
+        year_index (int or slice()): Can be either an integer that represents the specified year index or a slice object.
+        school_index (int or slice()): Can be either an integer that represents the specified school index or a slice object. 
+        grade_index (int or slice()): Can be either an integer that represents the specified grade index or a slice object. 
 
     Returns:
         total_enrollment_int (int): An integer that represents the total enrollment value. 
@@ -135,7 +135,7 @@ def mean_total_enrollment(school_index):
     entire 10-year period. 
 
     Args:
-        school_index (Any): Can be either an integer that represents the specified school index or a slice object. 
+        school_index (int or slice()): Can be either an integer that represents the specified school index or a slice object. 
 
     Returns: 
         mean_total_enrollment (int): An integer that represents the mean total enrollment value over 10 years. 
@@ -150,18 +150,20 @@ def mean_total_enrollment(school_index):
 
 
 def main():
-    print("ENSF 692 School Enrollment Statistics")
+    
     # Create a new School object 
     school = School()
 
-    # Print Stage 1 requirements here
-    print("Shape of full data array: ", full_data.shape)
-    print("Dimensions of full data array: ", full_data.ndim)
-
-    # Prompt for user input
     while True:
         try: 
-            user_input = input("Please enter high school name or school code: ")
+            # Print Stage 1 requirements here
+            print("ENSF 692 School Enrollment Statistics")
+            print("Shape of full data array: ", full_data.shape)
+            print("Dimensions of full data array: ", full_data.ndim)
+            
+
+            # Prompt for user input
+            user_input = input("Please enter high school name or school code or press 'q' to end the program: ")
 
             # Update the School object data based on user input if the name or code input is within either the school_code_indices or school_names_indices dictionary.
             if (user_input.isdigit and (user_input in school_codes_indices)) or (user_input.isalpha and (user_input in school_names_indices)):
